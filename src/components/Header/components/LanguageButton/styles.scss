@@ -1,0 +1,11 @@
+@import '../../../../sass/global-styles';
+
+.lang-button{
+   cursor: pointer;
+   border-style: none;
+   background-color: transparent;
+   margin: 10px;
+   color: $white;
+   font-weight: 700;
+   font-size: 20px;
+}

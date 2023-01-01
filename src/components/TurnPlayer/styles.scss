@@ -1,0 +1,118 @@
+@import '../../sass/global-styles';
+
+@mixin turn-content {
+  display: flex;
+  align-items: center;
+  margin: 16px;
+}
+
+@mixin turn-paragraph {
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: $gray;
+  color: $gray;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+@mixin turn-paragraph-active {
+  padding: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: $gray;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-color: #ff6d91;
+  border-bottom-width: 3px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+@mixin turn-type {
+  border: $gray solid 1px;
+  text-align: center;
+  color: $gray;
+  padding: 10px;
+  width: 40px;
+  font-weight: 700;
+}
+
+@mixin turn-type-active {
+  text-align: center;
+  background-color: $primaryColor;
+  color: #fff;
+  padding: 10px;
+  width: 40px;
+  font-weight: 700;
+}
+
+.turnPlayers {
+  display: flex;
+  justify-content: center;
+}
+
+.turn {
+  &Left {
+    @include turn-content;
+    p {
+      @include turn-paragraph;
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+
+    .turnTypeX {
+      @include turn-type;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      // height: 30px;
+    }
+
+    &Active {
+      @include turn-content;
+
+      p {
+        @include turn-paragraph-active;
+      }
+
+      .turnTypeXActive {
+        @include turn-type-active;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+      }
+    }
+  }
+
+  &Right {
+    @include turn-content;
+    p {
+      @include turn-paragraph;
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+
+    .turnTypeO {
+      @include turn-type;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+
+    &Active {
+      @include turn-content;
+
+      p {
+        @include turn-paragraph-active;
+      }
+
+      .turnTypeOActive {
+        @include turn-type-active;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+      }
+    }
+  }
+}

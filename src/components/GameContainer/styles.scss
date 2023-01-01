@@ -1,0 +1,12 @@
+@import '../../sass/global-styles';
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 0fr);
+  gap: 10px;
+  grid-template-rows: auto;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}

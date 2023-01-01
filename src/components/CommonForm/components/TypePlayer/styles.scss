@@ -1,0 +1,24 @@
+@import '../../../../sass/global-styles';
+
+@mixin defaultButton {
+  border-style: none;
+  height: 100px;
+  width: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 50px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.checkButton {
+  @include defaultButton;
+  background-color: $secondaryGray;
+  color: $black;
+  opacity: 0.4;
+  &Active {
+    @include defaultButton;
+    background-color: $primaryColor;
+    color: $white;
+  }
+}

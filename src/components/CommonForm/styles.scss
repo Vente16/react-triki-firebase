@@ -1,0 +1,58 @@
+@import '../../sass/global-styles';
+
+$defualtSpace: 16px;
+$defaultFontSize: 20px;
+$defaultFontFamily: 'Source Sans Pro', sans-serif;
+
+.homeContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  &-group {
+    margin-top: $defualtSpace;
+    margin-bottom: 32px;
+    input {
+      width: 95%;
+      height: 40px;
+      border-radius: 5px;
+      box-shadow: none;
+      border: 1px solid $secondaryGray;
+      transition: all 0.3s ease-in-out;
+      font-size: 18px;
+      padding: 0px 10px;
+      background: none;
+      color: $black;
+      font-family: $defaultFontFamily;
+    }
+    label {
+      font-size: $defaultFontSize;
+      font-family: $defaultFontFamily;
+      font-weight: 700;
+      color: $black;
+      opacity: 0.7;
+      margin-bottom: 10px;
+      display: inline-block;
+      max-width: 250px;
+    }
+  }
+  .submitButton {
+    width: 100%;
+    height: 40px;
+    background: $primaryColor;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: $defaultFontSize;
+    font-weight: 700;
+    font-family: $defaultFontFamily;
+    color: $white;
+    &:disabled {
+      opacity: 0.4;
+    }
+  }
+}

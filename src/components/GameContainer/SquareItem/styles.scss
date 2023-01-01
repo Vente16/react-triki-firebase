@@ -1,0 +1,21 @@
+@import '../../../sass/global-styles';
+
+.item {
+  display: flex;
+  background-color: $gray;
+  height: 150px;
+  width: 150px;
+  cursor: pointer;
+  border-style: none;
+  &Selected {
+    background-color: $primaryColor;
+    border-color: $primaryColor;
+    border-style: none;
+    cursor: pointer;
+    font-size: 50px;
+    font-weight: 700;
+    color: $white;
+    height: 150px;
+    width: 150px;
+  }
+}
