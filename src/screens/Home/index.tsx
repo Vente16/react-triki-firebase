@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ref, set } from 'firebase/database';
-// eslint-disable-next-line import/no-unresolved
-import { setUser } from '@appRedux/actions/user';
 
+// eslint-disable-next-line import/no-unresolved
 import { ITEMS } from './constants';
 
+import { setUser } from '@appRedux/actions/user';
 import { GameI, Player } from '@interfaces/trikiInterfaces';
 import { firebaseDB } from '@config/firebase';
 import CommonForm from '@components/CommonForm';

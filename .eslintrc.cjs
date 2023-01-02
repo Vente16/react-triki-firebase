@@ -42,7 +42,8 @@ module.exports = {
                   ['@utils', './src/utils'],
                   ['@assets', './src/assets'],
                   ['@hooks', './src/hooks'],
-                  ['@appRedux', './src/redux']
+                  ['@appRedux', './src/redux'],
+                  ['@mocks', './__mocks__']
                 ],
                 extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
               }

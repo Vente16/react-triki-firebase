@@ -7,14 +7,16 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "jest",
+    "test": "jest ",
     "lint-fix": "eslint src --ext .js,.ts,.jsx,.tsx --fix"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
     "firebase": "^9.15.0",
     "i18next": "^22.4.6",
+    "jest-environment-jsdom": "^29.3.1",
     "lodash": "^4.17.21",
+    "mutationobserver-shim": "^0.3.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.1.1",

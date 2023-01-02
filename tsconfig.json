@@ -13,7 +13,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "./",
@@ -29,9 +29,10 @@
       "@assets/*": ["src/assets/*"],
       "@sass/*": ["src/sass/*"],
       "@appRedux/*": ["src/redux/*"],
+      "@mocks/*": ["__mocks__/*"]
     }
   },
-  "include": ["src", "tests"],
+  "include": ["src", "tests", "__mocks__"],
    "parserOptions": {
       "ecmaFeatures": {
         "jsx": true,
