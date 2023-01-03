@@ -6,7 +6,7 @@ import { Player } from '@interfaces/trikiInterfaces';
 describe('Redux tests', () => {
   const defaultStore: RootState = {
     user: { data: null },
-    language: { language: 'es' }
+    language: { language: 'en' }
   };
   test('Initial store', () => {
     expect(store.getState()).toStrictEqual(defaultStore);
@@ -24,7 +24,7 @@ describe('Redux tests', () => {
   });
 
   test('Set language action', () => {
-    const newLanguage = 'en';
+    const newLanguage = 'es';
     store.dispatch(setLanguage(newLanguage));
     const { language } = store.getState().language;
     expect(language).toStrictEqual(newLanguage);
