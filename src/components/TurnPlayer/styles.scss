@@ -51,9 +51,39 @@
   font-weight: 700;
 }
 
-.turnPlayers {
+@mixin content-centered {
   display: flex;
   justify-content: center;
+}
+
+.turnPlayers {
+  @include content-centered;
+}
+
+.waitPlayer {
+  @include content-centered;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+  .copy {
+    cursor: pointer;
+    border-style: none;
+    background-color: $primaryColor;
+    margin: 10px;
+    color: $white;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    &:disabled {
+      opacity: 0.4;
+    }
+  }
+
+  p {
+    white-space: pre-line;
+    text-align: center;
+  }
 }
 
 .turn {
@@ -69,7 +99,6 @@
       @include turn-type;
       border-top-left-radius: 8px;
       border-bottom-left-radius: 8px;
-      // height: 30px;
     }
 
     &Active {

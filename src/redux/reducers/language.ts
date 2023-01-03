@@ -8,7 +8,7 @@ interface LanguageState {
 }
 
 const getLanguage = getItemLocalStorage('language');
-const initLanguage: Language = getLanguage ? getLanguage : 'es';
+const initLanguage: Language = getLanguage ? getLanguage : 'en';
 const initialState: LanguageState = {
   language: initLanguage
 };

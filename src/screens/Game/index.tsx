@@ -3,11 +3,13 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { cloneDeep } from 'lodash';
-// eslint-disable-next-line import/no-unresolved
-import { setUser } from '@appRedux/actions/user';
 
+// eslint-disable-next-line import/no-unresolved
 import { Option } from '../Home/components/TypePlayer';
 
+import { checkStatusGame, checkUserTypeExits, emptyTriki, statusMessages } from './constants';
+
+import { setUser } from '@appRedux/actions/user';
 import { TypeUser, GameI, Player, StatusGame } from '@interfaces/trikiInterfaces';
 import { getItemLocalStorage, setItemLocalStorage } from '@utils/localStorageUtils';
 import CommonForm from '@components/CommonForm';
@@ -41,25 +43,24 @@ function Game() {
   const [currentGame, setCurrentGame] = useState<Nullable<GameI>>(null);
   const [statusGame, setStatusGame] = useState<Nullable<StatusGame>>(null);
 
-  const finalStatusGame = statusGame?.status === 'Tie' || statusGame?.status === 'Winner';
-  const gameisBeingPlayed = statusGame?.status === 'Playing';
+  const { finalStatusGame, gameisBeingPlayed } = checkStatusGame(statusGame);
   const getMessages = () => {
+    let message = {};
     if (statusGame) {
       const { status, winner } = statusGame;
-      switch (status) {
-        case 'Tie':
-          return { title: t('Game:tie'), subTitle: 'X - O' };
-        case 'Winner':
-          return {
-            title: t('Game:winner', { name: winner?.name }),
-            subTitle: winner?.type
-          };
+      if (status === 'Tie') {
+        const title = t('Game:tie') || '';
+        const subTitle = 'X - O';
+        message = statusMessages(title, subTitle);
+      }
 
-        default:
-          return {};
+      if (status === 'Winner') {
+        const title = t('Game:winner', { name: winner?.name }) || '';
+        const subTitle = winner?.type;
+        message = statusMessages(title, subTitle);
       }
     }
-    return {};
+    return message;
   };
   const messagesGame = getMessages();
 
@@ -92,8 +93,7 @@ function Game() {
         const checkGameStatus = getGameStatus(triki);
         setStatusGame(checkGameStatus);
         const getUserType = getItemLocalStorage(`room_${gameId}`);
-        const checkUserTypeX = getUserType && playerX !== null && playerX.id === getUserType.id;
-        const checkUserTypeO = getUserType && playerO !== null && playerO.id === getUserType.id;
+        const { checkUserTypeX, checkUserTypeO } = checkUserTypeExits(getUserType, playerX, playerO);
         const checkUserType = checkUserTypeX || checkUserTypeO;
         let currentUserId = user?.id || '';
         if (checkUserType) {
@@ -173,7 +173,7 @@ function Game() {
             titleO={currentGame?.playerO?.name}
             typeTurn={currentGame?.turn}
           />
-          <GameContainer data={currentGame?.triki || [[], [], []]} onHandleClickItem={handleClickItem} />
+          <GameContainer data={currentGame?.triki || emptyTriki} onHandleClickItem={handleClickItem} />
         </div>
       ) : null}
       {existGame && hasUser && finalStatusGame ? <GameMessage {...messagesGame} /> : null}

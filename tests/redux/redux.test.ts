@@ -13,14 +13,14 @@ describe('Redux tests', () => {
   });
 
   test('Set user action', () => {
-    const plater: Player = {
+    const player: Player = {
       id: 'xxxxxx',
       name: 'John',
       type: 'X'
     };
-    store.dispatch(setUser(plater));
+    store.dispatch(setUser(player));
     const { data } = store.getState().user;
-    expect(data).toStrictEqual(plater);
+    expect(data).toStrictEqual(player);
   });
 
   test('Set language action', () => {

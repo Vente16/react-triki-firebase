@@ -83,7 +83,7 @@ function CommonForm({ labelItems, options, optionIndexChecked, onHandleSubmit }:
           <TypePlayer options={options} indexChecked={itemChecked} handleClickOption={handleOptionClick} />
         </div>
         <button type="button" className="submitButton" onClick={handleSubmit} disabled={!isValid}>
-          Test
+          {t('CommonForm:buttonSubmit')}
         </button>
       </form>
     </div>
